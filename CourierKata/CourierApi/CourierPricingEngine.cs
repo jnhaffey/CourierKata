@@ -8,12 +8,39 @@ namespace CourierApi
     /// </summary>
     public class CourierPricingEngine
     {
+        private TransportResult _transportResult;
+
+        public CourierPricingEngine()
+        {
+            _transportResult = new TransportResult();
+        }
+
         /// <summary>
-        ///     Use to calculate the cost of a parcel based on its size.
+        ///     Add Parcel to be transported
         /// </summary>
-        /// <param name="parcelToTransport">Instance of the Parcel Class.</param>
-        /// <returns>Cost</returns>
-        public static decimal CalculateCost(Parcel parcelToTransport)
+        /// <param name="parcelToTransport"></param>
+        public void AddNewParcel(Parcel parcelToTransport)
+        {
+            parcelToTransport.ShippingCost = CalculateCost(parcelToTransport);
+            _transportResult.AddParcel(parcelToTransport);
+        }
+
+        public void ClearResults()
+        {
+            _transportResult = new TransportResult();
+        }
+
+        public TransportResult GetTransportResult()
+        {
+            return _transportResult;
+        }
+
+        public string PrintInvoice()
+        {
+            return _transportResult.ToString();
+        }
+
+        private decimal CalculateCost(Parcel parcelToTransport)
         {
             switch (parcelToTransport.GetSize())
             {

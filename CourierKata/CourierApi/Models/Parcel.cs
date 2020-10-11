@@ -56,6 +56,11 @@ namespace CourierApi.Models
         public uint Depth { get; }
 
         /// <summary>
+        ///     The calculated cost to ship this parcel.
+        /// </summary>
+        public decimal ShippingCost { get; set; }
+
+        /// <summary>
         ///     Get the Parcel's Size based on the Courier's Rules.
         /// </summary>
         /// <returns>Size Value</returns>
