@@ -17,7 +17,8 @@ namespace CourierApi.Models
         /// <param name="height">Value must be greater than 0.</param>
         /// <param name="width">Value must be greater than 0.</param>
         /// <param name="depth">Value must be greater than 0.</param>
-        public Parcel(uint height, uint width, uint depth)
+        /// <param name="isSpeedy">Optional Speedy Delivery (default: false)</param>
+        public Parcel(uint height, uint width, uint depth, bool isSpeedy = false)
         {
             if (height == 0) throw new ArgumentException("0 Centimeter is not a valid height.", nameof(height));
             Height = height;
@@ -27,6 +28,8 @@ namespace CourierApi.Models
 
             if (height == 0) throw new ArgumentException("0 Centimeter is not a valid depth.", nameof(depth));
             Depth = depth;
+
+            IsSpeedy = isSpeedy;
         }
 
         /// <summary>
@@ -35,8 +38,9 @@ namespace CourierApi.Models
         /// <param name="height">Value must be greater than 0.</param>
         /// <param name="width">Value must be greater than 0.</param>
         /// <param name="depth">Value must be greater than 0.</param>
-        public Parcel(int height, int width, int depth)
-            : this((uint) height, (uint) width, (uint) depth)
+        /// <param name="isSpeedy">Optional Speedy Delivery (default: false)</param>
+        public Parcel(int height, int width, int depth, bool isSpeedy = false)
+            : this((uint) height, (uint) width, (uint) depth, isSpeedy)
         {
         }
 
@@ -54,6 +58,8 @@ namespace CourierApi.Models
         ///     Parcel's Depth in Centimeters.
         /// </summary>
         public uint Depth { get; }
+
+        public bool IsSpeedy { get; }
 
         /// <summary>
         ///     The calculated cost to ship this parcel.

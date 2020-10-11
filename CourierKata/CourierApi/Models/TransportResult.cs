@@ -53,7 +53,8 @@ namespace CourierApi.Models
         public void AddParcel(Parcel parcel)
         {
             Parcels.Add(parcel);
-            TotalCost += parcel.ShippingCost;
+            if (parcel.IsSpeedy) TotalCost += parcel.ShippingCost * 2;
+            else TotalCost += parcel.ShippingCost;
         }
 
         /// <summary>
@@ -73,7 +74,11 @@ namespace CourierApi.Models
         {
             var results = new StringBuilder();
             foreach (var parcel in Parcels)
-                results.AppendLine($"Parcel Size: {parcel.GetSize()} => Price: {parcel.ShippingCost:C2}");
+            {
+                results.AppendLine(parcel.IsSpeedy
+                    ? $"Parcel Size: {parcel.GetSize()} => Price: {parcel.ShippingCost:C2} | Speedy Enabled: {parcel.ShippingCost * 2:C2}"
+                    : $"Parcel Size: {parcel.GetSize()} => Price: {parcel.ShippingCost:C2}");
+            }
 
             results.AppendLine($"Total: {TotalCost:C2}");
             return results.ToString();

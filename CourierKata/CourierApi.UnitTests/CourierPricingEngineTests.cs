@@ -80,5 +80,54 @@ namespace CourierApi.UnitTests
             results.TotalCost.Should().Be(24.0M);
             _outputHelper.WriteLine(results.ToString());
         }
+
+        [Fact]
+        public void Test_Speedy_Option_On_Single_Parcel()
+        {
+            // ARRANGE
+            var parcel1 = new Parcel(10, 10, 10, true);
+
+            // ACT
+            _courierPricingEngine.AddNewParcel(parcel1);
+            var results = _courierPricingEngine.GetTransportResult();
+
+            // ASSERT
+            results.TotalCost.Should().Be(16.0M);
+            _outputHelper.WriteLine(results.ToString());
+        }
+
+        [Fact]
+        public void Test_Speedy_Option_On_Multiple_Parcel()
+        {
+            // ARRANGE
+            var parcel1 = new Parcel(10, 10, 10, true);
+            var parcel2 = new Parcel(10, 10, 10, true);
+
+            // ACT
+            _courierPricingEngine.AddNewParcel(parcel1);
+            _courierPricingEngine.AddNewParcel(parcel2);
+            var results = _courierPricingEngine.GetTransportResult();
+
+            // ASSERT
+            results.TotalCost.Should().Be(32.0M);
+            _outputHelper.WriteLine(results.ToString());
+        }
+
+        [Fact]
+        public void Test_Speedy_Option_On_Mixture_Parcel()
+        {
+            // ARRANGE
+            var parcel1 = new Parcel(10, 10, 10, true);
+            var parcel2 = new Parcel(10, 10, 10, false);
+
+            // ACT
+            _courierPricingEngine.AddNewParcel(parcel1);
+            _courierPricingEngine.AddNewParcel(parcel2);
+            var results = _courierPricingEngine.GetTransportResult();
+
+            // ASSERT
+            results.TotalCost.Should().Be(24.0M);
+            _outputHelper.WriteLine(results.ToString());
+        }
     }
 }
