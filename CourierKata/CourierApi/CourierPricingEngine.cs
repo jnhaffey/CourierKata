@@ -25,16 +25,27 @@ namespace CourierApi
             _transportResult.AddParcel(parcelToTransport);
         }
 
+        /// <summary>
+        ///     Clear the TransportResults.
+        /// </summary>
         public void ClearResults()
         {
             _transportResult = new TransportResult();
         }
 
+        /// <summary>
+        ///     Retrieve the TransportResult Object.
+        /// </summary>
+        /// <returns></returns>
         public TransportResult GetTransportResult()
         {
             return _transportResult;
         }
 
+        /// <summary>
+        ///     Print the Invoice for the TransportResult.
+        /// </summary>
+        /// <returns></returns>
         public string PrintInvoice()
         {
             return _transportResult.ToString();
