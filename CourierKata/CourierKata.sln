@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierApi.UnitTests", "CourierApi.UnitTests\CourierApi.UnitTests.csproj", "{74C5F616-6CEB-4225-ABB5-7B6D392FA6EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierApi", "CourierApi\CourierApi.csproj", "{5C9069CF-A08E-4D39-B1FE-2CD6AA812677}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74C5F616-6CEB-4225-ABB5-7B6D392FA6EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C5F616-6CEB-4225-ABB5-7B6D392FA6EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C5F616-6CEB-4225-ABB5-7B6D392FA6EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C5F616-6CEB-4225-ABB5-7B6D392FA6EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C9069CF-A08E-4D39-B1FE-2CD6AA812677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C9069CF-A08E-4D39-B1FE-2CD6AA812677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C9069CF-A08E-4D39-B1FE-2CD6AA812677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C9069CF-A08E-4D39-B1FE-2CD6AA812677}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
