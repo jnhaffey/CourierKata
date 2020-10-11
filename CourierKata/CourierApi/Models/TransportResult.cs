@@ -55,6 +55,8 @@ namespace CourierApi.Models
             Parcels.Add(parcel);
             if (parcel.IsSpeedy) TotalCost += parcel.ShippingCost * 2;
             else TotalCost += parcel.ShippingCost;
+
+            if (parcel.IsOverWeightLimit()) TotalCost += parcel.GetOverWeightCharges();
         }
 
         /// <summary>
